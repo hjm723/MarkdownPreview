@@ -1,5 +1,5 @@
 var React = require('react');
-var editorActions = require('./actions/editorActions');
+var editorActions = require('../actions/editorActions');
 
 var Editor = React.createClass({
   render: function() {

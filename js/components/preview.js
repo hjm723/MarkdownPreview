@@ -1,7 +1,7 @@
 var React = require('react');
 global.React = React;
 var md2react = require('md2react');
-var editorStores = require('./stores/editorStores');
+var editorStores = require('../stores/editorStores');
 
 function getTextState() {
   return {
@@ -20,10 +20,10 @@ var Preview = React.createClass({
     this.setState(getTextState());
   },
   render: function() {
-    var text = md2react(this.state.text, {gfm: true, breaks: true});
+    var markdownText = md2react(this.state.text, {gfm: true, breaks: true});
     return (
       <div>
-        {text}
+        {markdownText}
       </div>
     );
   }
