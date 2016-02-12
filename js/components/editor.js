@@ -1,18 +1,16 @@
 var React = require('react');
-var editorActions = require('../actions/editorActions');
+var previewActions = require('../actions/previewActions');
 
 var Editor = React.createClass({
   render: function() {
     return (
-      <div>
-        <textarea
-          onChange={this._onChange}
-        />
+      <div className="col-xs-6">
+        <textarea className="editor" onChange={this._onChange} />
       </div>
     );
   },
   _onChange: function(e) {
-    editorActions.change(e.target.value);
+    previewActions.change(e.target.value);
   }
 
 })

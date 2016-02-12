@@ -1,13 +1,13 @@
-var editorDispatcher = require('../dispatcher/editorDispatcher');
+var previewDispatcher = require('../dispatcher/previewDispatcher');
 var EventEmitter = require('events').EventEmitter;
-var editorConstants = require('../constants/editorConstants');
+var previewConstants = require('../constants/previewConstants');
 var assign = require('object-assign');
 
 var CHANGE_EVENT = 'change';
 
 var _text = "";
 
-var editorStores = assign({}, EventEmitter.prototype, {
+var previewStores = assign({}, EventEmitter.prototype, {
   getText: function() {
     return _text;
   },
@@ -19,16 +19,16 @@ var editorStores = assign({}, EventEmitter.prototype, {
   }
 });
 
-editorDispatcher.register(function(action) {
+previewDispatcher.register(function(action) {
 
   switch (action.actionType) {
-    case editorConstants.CHANGE:
+    case previewConstants.CHANGE:
       _text = action.text;
-      editorStores.emitChange();
+      previewStores.emitChange();
       break;
     default:
 
   }
 });
 
-module.exports = editorStores;
+module.exports = previewStores;
